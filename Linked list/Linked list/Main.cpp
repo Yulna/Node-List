@@ -10,7 +10,8 @@ int main(){
 	unsigned int sizeTest = listTest.size();
 	Node<int>* endTest = listTest.end();
 
-	listTest.pushback(endTest);
+	listTest.pushfront(4);
+	listTest.pushback(6);
 
 	return 0;
 }

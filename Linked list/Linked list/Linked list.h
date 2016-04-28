@@ -48,10 +48,17 @@ public:
 
 
 	//TODO pushback() & pushfront();
-	void pushback(Node<TYPE>* node) const{
-		Node<TYPE>* temp = end();
-		temp->next = node;
+	void pushback(TYPE data){
+		Node<TYPE>* new_node = end();
+		new_node->next = new Node<TYPE>(data);
 	}
+
+	void pushfront(TYPE data){
+		Node<TYPE>* temp = first;
+		first = new Node<TYPE>(data);
+		first->next = temp;
+	}
+
 };
 
 

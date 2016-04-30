@@ -13,5 +13,8 @@ int main(){
 	listTest.pushfront(4);
 	listTest.pushback(6);
 
+	bool pop1 = listTest.pop_back();
+	bool pop2 = listTest.pop_back();
+
 	return 0;
 }

@@ -19,7 +19,7 @@ int main(){
 	emptyTest = DListTest.empty();
 	TEST("Empty false", emptyTest == false);
 	endTest = DListTest.end();
-	//TEST("End:", endTest == 7);
+	TEST("End:", DListTest.end()->data == 7);
 	sizeTest = DListTest.size();
 	TEST("Size:", sizeTest == 4);
 	
@@ -53,6 +53,16 @@ int main(){
 	it = DListTest.first;
 	TEST("Erase one", DListTest.erase(it));
 
+	DListTest.insert(DListTest.first,1);
+	TEST("Empty insert", DListTest.first->data == 1);
+	DListTest.pushback(3);
+	DListTest.pushback(4);
+
+	DListTest.insert(DListTest.first, 2);
+	TEST("Regular insert", DListTest.first->next->data = 2);
+
+	DListTest.insert(DListTest.first->next->next->next, 5);
+	TEST("Back insert", DListTest.end()->data == 5);
 
 
 	PRINT_TEST_REPORT();

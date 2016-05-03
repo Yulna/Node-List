@@ -13,7 +13,7 @@ struct Node
 };
 
 
-//TODO double DList
+
 template <class	TYPE>
 class DList
 {
@@ -120,6 +120,24 @@ public:
 		return false;
 	}
 
+	bool insert(Node<TYPE>* beforeIns,const TYPE& data){
+		Node<TYPE>* newNode = new Node<TYPE>(data);
+
+		if (beforeIns != nullptr){
+			if (beforeIns->next != nullptr){
+				newNode->next = beforeIns->next;
+				beforeIns->next->previous = newNode;
+			}
+
+			newNode->previous = beforeIns;
+			beforeIns->next = newNode;
+			return true;
+		}
+		else{
+			first = newNode;
+			return true;
+		}
+	}
 
 };
 

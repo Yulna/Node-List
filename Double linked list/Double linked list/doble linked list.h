@@ -18,6 +18,7 @@ template <class	TYPE>
 class DList
 {
 public:
+
 	Node<TYPE>* first = nullptr;
 
 public:
@@ -102,9 +103,9 @@ public:
 	}
 
 
-	//TODO erase && insert
+	//erase && insert
+	//NEED AN ITERATOR, would be useful to have a doube direction List
 	bool erase(Node<TYPE>* tokill){
-		//NEED AN ITERATOR, would be useful to have a doube direction List
 		if (tokill != nullptr){
 			if (tokill->previous != nullptr)
 				tokill->previous->next = tokill->next;
@@ -120,17 +121,17 @@ public:
 		return false;
 	}
 
-	bool insert(Node<TYPE>* beforeIns,const TYPE& data){
+	bool insert(Node<TYPE>* afterIns,const TYPE& data){ //Redo the node next/previous links.
 		Node<TYPE>* newNode = new Node<TYPE>(data);
 
-		if (beforeIns != nullptr){
-			if (beforeIns->next != nullptr){
-				newNode->next = beforeIns->next;
-				beforeIns->next->previous = newNode;
+		if (afterIns != nullptr){
+			if (afterIns->next != nullptr){
+				newNode->next = afterIns->next;
+				afterIns->next->previous = newNode;
 			}
 
-			newNode->previous = beforeIns;
-			beforeIns->next = newNode;
+			newNode->next = afterIns;
+			afterIns->previous = newNode;
 			return true;
 		}
 		else{

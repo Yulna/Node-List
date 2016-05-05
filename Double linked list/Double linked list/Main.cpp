@@ -43,6 +43,7 @@ int main(){
 	DListTest.pushback(3);
 	DListTest.pushback(4);
 
+
 	Node<int>* it = DListTest.first;
 	it = it->next;
 	TEST("Erase midle", DListTest.erase(it));
